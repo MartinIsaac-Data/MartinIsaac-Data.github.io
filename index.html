@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martin Isaac Nyetam — Data Analyst & IT Auditor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F8F6F1;
+    --cream: #F0EDE4;
+    --text-dark: #0F1520;
+    --text-mid: #3A3F4B;
+    --text-light: #7A8194;
+    --accent: #1A3A6B;
+    --accent-2: #C8A850;
+    --accent-3: #2E6DA4;
+    --border: #E2DDD5;
+    --tag-bg: #EBF2FA;
+    --tag-text: #1A3A6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(248,246,241,0.93);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.1rem;
+    color: var(--accent); letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--text-mid); text-decoration: none;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent); color: var(--white) !important;
+    padding: 0.42rem 1.1rem; border-radius: 4px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent-3) !important; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    padding: 96px 5vw 60px;
+    gap: 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 56px 56px; opacity: 0.45;
+  }
+  .hero-blob {
+    position: absolute; right: -8vw; top: 8vh;
+    width: 52vw; height: 82vh;
+    background: linear-gradient(140deg, #EBF2FA 0%, #D4E8F5 55%, #F0EDE4 100%);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    z-index: 0; opacity: 0.65;
+    animation: blob 11s ease-in-out infinite;
+  }
+  @keyframes blob {
+    0%,100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--tag-bg); color: var(--accent);
+    font-size: 0.73rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.33rem 0.9rem;
+    border-radius: 2rem; margin-bottom: 1.4rem;
+    border: 1px solid rgba(26,58,107,0.16);
+    animation: fadeUp 0.55s ease both;
+  }
+  .pill-dot { width: 7px; height: 7px; background: #2A7A52; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.5)} }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 4.8vw, 4.4rem);
+    font-weight: 900; line-height: 1.06;
+    letter-spacing: -0.03em; color: var(--text-dark);
+    animation: fadeUp 0.55s 0.1s ease both;
+  }
+  h1 em { color: var(--accent); font-style: normal; }
+
+  .hero-sub {
+    font-size: 1.03rem; color: var(--text-mid);
+    margin: 1.3rem 0 2.2rem; max-width: 490px;
+    font-weight: 300; line-height: 1.75;
+    animation: fadeUp 0.55s 0.2s ease both;
+  }
+  .hero-sub strong { color: var(--accent); font-weight: 600; }
+
+  .hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; animation: fadeUp 0.55s 0.3s ease both; }
+  .btn-p {
+    background: var(--accent); color: #fff;
+    padding: 0.78rem 1.7rem; border-radius: 5px;
+    font-weight: 600; font-size: 0.88rem; text-decoration: none;
+    box-shadow: 0 4px 18px rgba(26,58,107,0.28);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-p:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(26,58,107,0.38); }
+  .btn-s {
+    background: transparent; color: var(--accent);
+    padding: 0.78rem 1.7rem; border-radius: 5px;
+    font-weight: 600; font-size: 0.88rem; text-decoration: none;
+    border: 1.5px solid var(--accent);
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-s:hover { background: var(--accent); color: #fff; }
+
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; animation: fadeUp 0.55s 0.4s ease both; }
+  .stat-n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--accent); line-height:1; }
+  .stat-l { font-size: 0.72rem; color: var(--text-light); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* HERO CARD */
+  .hero-right { position: relative; z-index: 1; animation: fadeUp 0.65s 0.3s ease both; }
+  .h-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 18px; padding: 2rem;
+    box-shadow: 0 22px 64px rgba(15,21,32,0.09);
+  }
+  .h-card-top { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+  .avatar {
+    width: 54px; height: 54px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-3));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 1.3rem;
+    color: #fff; font-weight: 700; flex-shrink: 0;
+  }
+  .h-card-name { font-weight: 700; font-size: 0.98rem; }
+  .h-card-role { font-size: 0.78rem; color: var(--text-light); }
+  .h-card-role span { color: var(--accent-2); font-weight: 600; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.4rem; }
+  .chip {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+    padding: 0.28rem 0.72rem; border-radius: 2rem; text-transform: uppercase;
+  }
+  .c1 { background: rgba(26,58,107,0.1); color: #1A3A6B; }
+  .c2 { background: rgba(46,109,164,0.1); color: #2E6DA4; }
+  .c3 { background: rgba(200,168,80,0.12); color: #8B6F1A; }
+  .c4 { background: rgba(42,122,82,0.1); color: #2A7A52; }
+
+  .bar-item { margin-bottom: 0.9rem; }
+  .bar-lbl { display: flex; justify-content: space-between; font-size: 0.77rem; margin-bottom: 0.28rem; font-weight: 500; }
+  .bar-lbl span:last-child { color: var(--text-light); font-family: 'DM Mono', monospace; font-size: 0.7rem; }
+  .bar-bg { height: 5px; background: var(--cream); border-radius: 10px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 10px; animation: grow 1.3s ease both; }
+  @keyframes grow { from { width: 0; } }
+
+  .h-card-foot { border-top: 1px solid var(--border); padding-top: 0.9rem; margin-top: 0.4rem; }
+  .avail { display: flex; align-items: center; gap: 0.45rem; font-size: 0.77rem; color: var(--text-light); }
+  .green-dot { width: 8px; height: 8px; background: #2A7A52; border-radius: 50%; animation: pulse 2s infinite; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+
+  /* SECTIONS */
+  section { padding: 88px 5vw; }
+  section:nth-child(even) { background: var(--white); }
+  .s-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--accent-2); margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+    font-weight: 800; letter-spacing: -0.02em;
+    color: var(--text-dark); margin-bottom: 0.7rem;
+  }
+  .s-intro { font-size: 0.97rem; color: var(--text-mid); max-width: 550px; margin-bottom: 2.8rem; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { color: var(--text-mid); line-height: 1.8; margin-bottom: 1.1rem; }
+  .about-text p strong { color: var(--accent); }
+  .sectors { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .sc {
+    padding: 1.2rem; border-radius: 10px; border: 1.5px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .sc:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,21,32,0.07); }
+  .sc.s1 { border-color: rgba(26,58,107,0.28); }
+  .sc.s2 { border-color: rgba(46,109,164,0.28); }
+  .sc.s3 { border-color: rgba(200,168,80,0.3); }
+  .sc.s4 { border-color: rgba(42,122,82,0.28); }
+  .sc-ico { font-size: 1.4rem; margin-bottom: 0.45rem; }
+  .sc h4 { font-size: 0.84rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .sc p { font-size: 0.74rem; color: var(--text-light); line-height: 1.5; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  .sg {
+    background: var(--off-white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.4rem;
+  }
+  .sg h3 {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.9rem; padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .si { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.65rem; }
+  .sd { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); flex-shrink: 0; }
+  .si span { font-size: 0.84rem; color: var(--text-mid); }
+
+  .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+  .cc {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.15rem;
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    transition: box-shadow 0.2s;
+  }
+  .cc:hover { box-shadow: 0 6px 22px rgba(15,21,32,0.07); }
+  .cc-ico { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .cc h4 { font-size: 0.79rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.15rem; line-height: 1.35; }
+  .cc p { font-size: 0.7rem; color: var(--text-light); }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 13px; top: 10px; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .ti { display: flex; gap: 2rem; margin-bottom: 2.2rem; }
+  .ti-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--white); border: 2px solid var(--accent);
+    flex-shrink: 0; position: relative; z-index: 1; margin-top: 3px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ti-dot::after { content:''; width:10px; height:10px; background: var(--accent); border-radius:50%; }
+  .ti-dot.now { background: var(--accent); }
+  .ti-dot.now::after { background: #fff; }
+  .ti-body {
+    background: var(--off-white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.4rem; flex: 1;
+  }
+  .ti-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.7rem; }
+  .ti-co { font-family: 'Playfair Display', serif; font-size: 1.08rem; font-weight: 700; color: var(--accent); }
+  .ti-role { font-weight: 600; font-size: 0.88rem; color: var(--text-dark); margin-bottom: 0.2rem; }
+  .ti-date { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--text-light); background:var(--cream); padding:0.22rem 0.65rem; border-radius:2rem; white-space:nowrap; }
+  .ti-ul { list-style: none; }
+  .ti-ul li { font-size:0.84rem; color:var(--text-mid); padding:0.28rem 0 0.28rem 1rem; position:relative; line-height:1.5; }
+  .ti-ul li::before { content:'→'; position:absolute; left:0; color:var(--accent-2); font-size:0.78rem; }
+
+  /* PROJECTS */
+  .pf-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
+  .fb {
+    padding: 0.38rem 0.95rem; border-radius: 2rem;
+    font-size: 0.76rem; font-weight: 600; letter-spacing: 0.04em;
+    border: 1.5px solid var(--border); background: transparent;
+    color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+  }
+  .fb.active, .fb:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .pg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+  .pc {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .pc:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(15,21,32,0.1); }
+  .pt { height: 155px; display:flex; align-items:center; justify-content:center; font-size:2.7rem; position:relative; overflow:hidden; }
+  .pt::before { content:''; position:absolute; inset:0; opacity:0.07; background-image:repeating-linear-gradient(45deg,currentColor,currentColor 1px,transparent 1px,transparent 10px); }
+  .pt-s { background:linear-gradient(135deg,#EBF2FA,#C8D9F0); color:#1A3A6B; }
+  .pt-t { background:linear-gradient(135deg,#E8F4FD,#BFD9F5); color:#2E6DA4; }
+  .pt-b { background:linear-gradient(135deg,#FDF8EC,#F5E6A8); color:#8B6F1A; }
+  .pt-i { background:linear-gradient(135deg,#EBF7F2,#BEEADA); color:#2A7A52; }
+  .pb-badge {
+    position:absolute; top:10px; right:10px;
+    background:rgba(255,255,255,0.92); color:var(--text-light);
+    font-size:0.63rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    padding:0.18rem 0.55rem; border-radius:2rem; border:1px solid var(--border);
+  }
+  .pb { padding: 1.3rem; }
+  .pb-sector { font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.45rem; }
+  .ps-s { color:#1A3A6B; } .ps-t { color:#2E6DA4; } .ps-b { color:#8B6F1A; } .ps-i { color:#2A7A52; }
+  .pb h3 { font-size:0.92rem; font-weight:700; color:var(--text-dark); margin-bottom:0.45rem; line-height:1.4; }
+  .pb p { font-size:0.79rem; color:var(--text-mid); line-height:1.6; margin-bottom:0.9rem; }
+  .tags { display:flex; flex-wrap:wrap; gap:0.38rem; }
+  .tag { font-size:0.67rem; font-weight:500; background:var(--tag-bg); color:var(--tag-text); padding:0.18rem 0.52rem; border-radius:3px; }
+  .pf { padding:0.85rem 1.3rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+  .plinks { display:flex; gap:0.5rem; }
+  .pl {
+    font-size:0.73rem; font-weight:600; color:var(--accent);
+    text-decoration:none; padding:0.27rem 0.65rem;
+    border:1px solid var(--accent); border-radius:4px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .pl:hover { background:var(--accent); color:#fff; }
+  .pd { font-family:'DM Mono',monospace; font-size:0.67rem; color:var(--text-light); }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
+  .ec {
+    background: var(--off-white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.4rem; position: relative; overflow: hidden;
+  }
+  .ec::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--accent-3)); }
+  .ed { font-family:'Playfair Display',serif; font-weight:700; font-size:0.97rem; color:var(--text-dark); margin-bottom:0.38rem; line-height:1.35; }
+  .es { font-weight:600; font-size:0.83rem; color:var(--accent); margin-bottom:0.28rem; }
+  .edate { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--text-light); }
+
+  /* CONTACT */
+  #contact { background: var(--accent); color: #fff; }
+  #contact .s-label { color: var(--accent-2); }
+  #contact h2 { color: #fff; }
+  #contact .s-intro { color: rgba(255,255,255,0.72); }
+  .cg { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .ci {
+    display:flex; align-items:center; gap:0.9rem;
+    padding:0.95rem; border-radius:10px;
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+    margin-bottom:0.9rem; text-decoration:none;
+    transition: background 0.2s;
+  }
+  .ci:hover { background:rgba(255,255,255,0.12); }
+  .ci-ico { font-size:1.25rem; flex-shrink:0; }
+  .ci-lbl { font-size:0.7rem; color:rgba(255,255,255,0.52); text-transform:uppercase; letter-spacing:0.06em; }
+  .ci-val { font-size:0.88rem; font-weight:600; color:#fff; }
+  .cf { display:flex; flex-direction:column; gap:0.9rem; }
+  .cf input, .cf textarea {
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2);
+    color:#fff; padding:0.85rem 1rem; border-radius:8px;
+    font-family:'DM Sans',sans-serif; font-size:0.88rem;
+    transition: border-color 0.2s; resize:none;
+  }
+  .cf input::placeholder, .cf textarea::placeholder { color:rgba(255,255,255,0.38); }
+  .cf input:focus, .cf textarea:focus { outline:none; border-color:var(--accent-2); }
+  .cf textarea { height:128px; }
+  .btn-send {
+    background:var(--accent-2); color:var(--text-dark);
+    font-weight:700; font-size:0.88rem; letter-spacing:0.03em;
+    padding:0.88rem; border:none; border-radius:8px;
+    cursor:pointer; transition:opacity 0.2s;
+  }
+  .btn-send:hover { opacity:0.87; }
+
+  footer {
+    background: var(--text-dark); color:rgba(255,255,255,0.48);
+    text-align:center; padding:1.8rem 5vw; font-size:0.78rem;
+  }
+  footer strong { color:rgba(255,255,255,0.78); }
+
+  /* REVEAL */
+  .reveal { opacity:0; transform:translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    #hero { grid-template-columns:1fr; padding-top:88px; }
+    .hero-right { display:none; }
+    .about-grid,.cg { grid-template-columns:1fr; gap:2.2rem; }
+    .skills-grid,.pg,.edu-grid,.certs-grid { grid-template-columns:1fr 1fr; }
+    .sectors { grid-template-columns:1fr; }
+    .nav-links { display:none; }
+  }
+  @media(max-width:600px){
+    .skills-grid,.pg,.edu-grid,.certs-grid { grid-template-columns:1fr; }
+    .hero-stats { gap:1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Martin I. Nyetam</div>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blob"></div>
+
+  <div class="hero-content">
+    <div class="hero-pill"><span class="pill-dot"></span>Disponible pour projets freelance</div>
+    <h1>Martin Isaac<br><em>Nyetam</em></h1>
+    <p class="hero-sub">
+      <strong>Data Analyst & IT Auditor</strong> — Je transforme la donnée en décisions stratégiques pour la Supply Chain, la Télécom, la Banque et l'IT.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-p">Voir mes projets</a>
+      <a href="#contact" class="btn-s">Me contacter</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">3+</div><div class="stat-l">Années exp.</div></div>
+      <div><div class="stat-n">6</div><div class="stat-l">Certifications</div></div>
+      <div><div class="stat-n">4</div><div class="stat-l">Secteurs ciblés</div></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="h-card">
+      <div class="h-card-top">
+        <div class="avatar">MN</div>
+        <div>
+          <div class="h-card-name">Martin Isaac Nyetam</div>
+          <div class="h-card-role">Demand Planner · <span>Nestlé Douala</span></div>
+        </div>
+      </div>
+      <div class="chips">
+        <span class="chip c1">Supply Chain</span>
+        <span class="chip c2">Télécom</span>
+        <span class="chip c3">Banque</span>
+        <span class="chip c4">Audit IT</span>
+      </div>
+      <div class="bar-item">
+        <div class="bar-lbl"><span>Power BI</span><span>95%</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:95%;background:linear-gradient(90deg,#1A3A6B,#2E6DA4)"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-lbl"><span>Excel Avancé</span><span>92%</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:92%;background:linear-gradient(90deg,#2A7A52,#3DB870);animation-delay:.1s"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-lbl"><span>SQL Server</span><span>82%</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:82%;background:linear-gradient(90deg,#C8A850,#E4C85C);animation-delay:.2s"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-lbl"><span>Python</span><span>75%</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:75%;background:linear-gradient(90deg,#2E6DA4,#5A9FD4);animation-delay:.3s"></div></div>
+      </div>
+      <div class="h-card-foot">
+        <div class="avail"><span class="green-dot"></span>Douala, Cameroun · Ouvert aux projets</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="s-label">Qui suis-je</div>
+  <h2>Passionné par la donnée<br>& l'optimisation IT</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>Actuellement <strong>Demand Planner & Data Analyst chez Nestlé Douala</strong>, je conçois et déploie des dashboards automatisés, analyse les données Sell-In / Sell-Out et produis des prévisions de demande précises pour optimiser la chaîne d'approvisionnement.</p>
+      <p>Parallèlement, je développe des <strong>projets concrets à forte valeur ajoutée</strong> dans des secteurs variés — Supply Chain, Télécom (Orange, MTN), Banque et Audit IT — publiés régulièrement sur LinkedIn et GitHub, au moins une fois toutes les deux semaines.</p>
+      <p>Diplômé d'un <strong>Master en Gestion de Projets (ESSEC Douala)</strong>, certifié Power BI, CNSP et Blue Team Junior Analyst, je combine expertise technique et vision business pour livrer des insights actionnables.</p>
+    </div>
+    <div class="sectors reveal">
+      <div class="sc s1"><div class="sc-ico">🔗</div><h4>Supply Chain</h4><p>Demand planning, prévisions, KPIs de performance, optimisation des stocks</p></div>
+      <div class="sc s2"><div class="sc-ico">📡</div><h4>Télécom</h4><p>Analyse du churn, segmentation clients, performance réseau (Orange, MTN…)</p></div>
+      <div class="sc s3"><div class="sc-ico">🏦</div><h4>Secteur Bancaire</h4><p>Analyse de risque, détection de fraude, reporting réglementaire</p></div>
+      <div class="sc s4"><div class="sc-ico">🛡️</div><h4>Audit IT</h4><p>Sécurité des SI, conformité, gestion des incidents, support N1/N2</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="s-label">Expertise technique</div>
+  <h2>Compétences & Certifications</h2>
+  <p class="s-intro">Un socle technique solide couvrant l'analyse de données, la visualisation business et la cybersécurité.</p>
+  <div class="skills-grid reveal">
+    <div class="sg">
+      <h3>📊 Data & Analytics</h3>
+      <div class="si"><span class="sd"></span><span>Power BI (DAX, M)</span></div>
+      <div class="si"><span class="sd"></span><span>Excel Avancé (Pivot Tables)</span></div>
+      <div class="si"><span class="sd"></span><span>SQL Server</span></div>
+      <div class="si"><span class="sd"></span><span>Python (Pandas, NumPy)</span></div>
+      <div class="si"><span class="sd"></span><span>SAP APO</span></div>
+    </div>
+    <div class="sg">
+      <h3>☁️ Cloud & Infra</h3>
+      <div class="si"><span class="sd"></span><span>Microsoft Azure</span></div>
+      <div class="si"><span class="sd"></span><span>Microsoft 365</span></div>
+      <div class="si"><span class="sd"></span><span>Portail captif réseau</span></div>
+      <div class="si"><span class="sd"></span><span>Administration systèmes</span></div>
+      <div class="si"><span class="sd"></span><span>Backup & Recovery</span></div>
+    </div>
+    <div class="sg">
+      <h3>🛡️ Sécurité IT</h3>
+      <div class="si"><span class="sd"></span><span>Network Security (CNSP)</span></div>
+      <div class="si"><span class="sd"></span><span>Blue Team / SOC</span></div>
+      <div class="si"><span class="sd"></span><span>Gestion des incidents</span></div>
+      <div class="si"><span class="sd"></span><span>AI Agents & Workflows</span></div>
+      <div class="si"><span class="sd"></span><span>Support technique N1/N2</span></div>
+    </div>
+  </div>
+
+  <div class="s-label" style="margin-top:2.8rem;">Certifications obtenues</div>
+  <div class="certs-grid reveal">
+    <div class="cc"><div class="cc-ico">📊</div><div><h4>Microsoft Power BI Data Analyst</h4><p>LinkedIn Learning</p></div></div>
+    <div class="cc"><div class="cc-ico">📈</div><div><h4>Data Analyst</h4><p>LinkedIn Learning</p></div></div>
+    <div class="cc"><div class="cc-ico">🛡️</div><div><h4>CNSP — Certified Network Security Practitioner</h4><p>ID : 8363297</p></div></div>
+    <div class="cc"><div class="cc-ico">🤖</div><div><h4>Agentic Workflow & AI Agents</h4><p>LinkedIn Learning</p></div></div>
+    <div class="cc"><div class="cc-ico">🔵</div><div><h4>Blue Team Junior Analyst</h4><p>Security Blue Team</p></div></div>
+    <div class="cc"><div class="cc-ico">☁️</div><div><h4>Certification Microsoft 365</h4><p>Alphorm</p></div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="s-label">Parcours professionnel</div>
+  <h2>Expériences</h2>
+  <p class="s-intro">Un parcours progressif allant du support IT à l'analyse de données stratégique en entreprise internationale.</p>
+  <div class="timeline reveal">
+    <div class="ti">
+      <div class="ti-dot now"></div>
+      <div class="ti-body">
+        <div class="ti-head">
+          <div><div class="ti-co">Nestlé</div><div class="ti-role">Demand Planner — Data Analyst</div></div>
+          <span class="ti-date">Août 2025 → Présent</span>
+        </div>
+        <ul class="ti-ul">
+          <li>Développement de dashboards automatisés (Excel, Power BI) pour la prise de décision data-driven</li>
+          <li>Analyse des données Sell-In / Sell-Out pour anticiper les tendances de la demande</li>
+          <li>Suivi de la précision des prévisions via KPIs : DPA, Bias, COF</li>
+          <li>Analyses statistiques avancées pour optimiser les niveaux de stock</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ti">
+      <div class="ti-dot"></div>
+      <div class="ti-body">
+        <div class="ti-head">
+          <div><div class="ti-co">Softronic</div><div class="ti-role">IT Support & Data Analyst (Power BI & Excel)</div></div>
+          <span class="ti-date">Jan. 2024 → Juin 2025</span>
+        </div>
+        <ul class="ti-ul">
+          <li>Collecte, préparation et transformation de données métier</li>
+          <li>Conception de rapports et dashboards interactifs Power BI</li>
+          <li>Collaboration transversale pour comprendre les besoins de reporting</li>
+          <li>Support technique N1/N2, résolution d'incidents matériels et logiciels</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ti">
+      <div class="ti-dot"></div>
+      <div class="ti-body">
+        <div class="ti-head">
+          <div><div class="ti-co">Autovision Cam</div><div class="ti-role">Information Technology</div></div>
+          <span class="ti-date">Oct. 2021 → Mars 2022</span>
+        </div>
+        <ul class="ti-ul">
+          <li>Installation, configuration et mise à jour des OS et logiciels</li>
+          <li>Audit et maintenance du parc informatique</li>
+          <li>Implémentation d'un portail captif pour la gestion des politiques réseau</li>
+          <li>Gestion des sauvegardes et récupération de données après incidents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="s-label">Portfolio de projets</div>
+  <h2>Projets publiés</h2>
+  <p class="s-intro">Un nouveau projet publié sur LinkedIn & GitHub chaque semaine ou quinzaine, avec une vraie valeur ajoutée sectorielle.</p>
+
+  <div class="pf-bar">
+    <button class="fb active" onclick="filter('all',this)">Tous</button>
+    <button class="fb" onclick="filter('s',this)">Supply Chain</button>
+    <button class="fb" onclick="filter('t',this)">Télécom</button>
+    <button class="fb" onclick="filter('b',this)">Banque</button>
+    <button class="fb" onclick="filter('i',this)">Audit IT</button>
+  </div>
+
+  <div class="pg" id="pg">
+
+    <div class="pc reveal" data-s="s">
+      <div class="pt pt-s">📦<span class="pb-badge">À venir</span></div>
+      <div class="pb">
+        <div class="pb-sector ps-s">Supply Chain</div>
+        <h3>Dashboard de prévision de la demande — FMCG</h3>
+        <p>Modélisation et visualisation Power BI des prévisions Sell-In/Sell-Out avec suivi des KPIs DPA, Bias et COF pour une entreprise de grande consommation.</p>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Excel</span><span class="tag">SAP APO</span></div>
+      </div>
+      <div class="pf"><div class="plinks"><a href="#" class="pl">LinkedIn</a><a href="#" class="pl">GitHub</a></div><span class="pd">Bientôt</span></div>
+    </div>
+
+    <div class="pc reveal" data-s="t">
+      <div class="pt pt-t">📡<span class="pb-badge">À venir</span></div>
+      <div class="pb">
+        <div class="pb-sector ps-t">Télécom</div>
+        <h3>Analyse du churn client — Opérateur mobile</h3>
+        <p>Modèle prédictif de désabonnement pour un opérateur type Orange/MTN avec segmentation et recommandations de rétention basées sur les données.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Power BI</span><span class="tag">ML</span></div>
+      </div>
+      <div class="pf"><div class="plinks"><a href="#" class="pl">LinkedIn</a><a href="#" class="pl">GitHub</a></div><span class="pd">Bientôt</span></div>
+    </div>
+
+    <div class="pc reveal" data-s="b">
+      <div class="pt pt-b">🏦<span class="pb-badge">À venir</span></div>
+      <div class="pb">
+        <div class="pb-sector ps-b">Banque</div>
+        <h3>Détection de fraude bancaire par anomalie</h3>
+        <p>Système de détection d'anomalies sur des transactions bancaires avec reporting automatisé des cas suspects et suivi du risque en temps réel.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Azure</span></div>
+      </div>
+      <div class="pf"><div class="plinks"><a href="#" class="pl">LinkedIn</a><a href="#" class="pl">GitHub</a></div><span class="pd">Bientôt</span></div>
+    </div>
+
+    <div class="pc reveal" data-s="i">
+      <div class="pt pt-i">🛡️<span class="pb-badge">À venir</span></div>
+      <div class="pb">
+        <div class="pb-sector ps-i">Audit IT</div>
+        <h3>Audit de sécurité d'un SI d'entreprise</h3>
+        <p>Cartographie des vulnérabilités, analyse des risques et rapport complet sur l'infrastructure IT d'une PME avec recommandations de remédiation.</p>
+        <div class="tags"><span class="tag">CNSP</span><span class="tag">Blue Team</span><span class="tag">Network</span><span class="tag">Conformité</span></div>
+      </div>
+      <div class="pf"><div class="plinks"><a href="#" class="pl">LinkedIn</a><a href="#" class="pl">GitHub</a></div><span class="pd">Bientôt</span></div>
+    </div>
+
+    <div class="pc reveal" data-s="s">
+      <div class="pt pt-s">📊<span class="pb-badge">À venir</span></div>
+      <div class="pb">
+        <div class="pb-sector ps-s">Supply Chain</div>
+        <h3>Optimisation des stocks — Analyse ABC-XYZ</h3>
+        <p>Segmentation produits par criticité et variabilité de la demande pour réduire les ruptures et surstocks dans une chaîne FMCG.</p>
+        <div class="tags"><span class="tag">Excel</span><span class="tag">Python</span><span class="tag">Power BI</span></div>
+      </div>
+      <div class="pf"><div class="plinks"><a href="#" class="pl">LinkedIn</a><a href="#" class="pl">GitHub</a></div><span class="pd">Bientôt</span></div>
+    </div>
+
+    <div class="pc reveal" data-s="t">
+      <div class="pt pt-t">📶<span class="pb-badge">À venir</span></div>
+      <div class="pb">
+        <div class="pb-sector ps-t">Télécom</div>
+        <h3>Dashboard performance réseau — KPIs opérateur</h3>
+        <p>Tableau de bord de suivi en temps réel des KPIs réseau (disponibilité, latence, incidents) pour la direction technique d'un opérateur mobile.</p>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">DAX</span></div>
+      </div>
+      <div class="pf"><div class="plinks"><a href="#" class="pl">LinkedIn</a><a href="#" class="pl">GitHub</a></div><span class="pd">Bientôt</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="s-label">Formation académique</div>
+  <h2>Éducation</h2>
+  <div class="edu-grid reveal">
+    <div class="ec"><div class="ed">Master en Gestion des Projets</div><div class="es">ESSEC Douala</div><div class="edate">Sept. 2021 — Sept. 2023</div></div>
+    <div class="ec"><div class="ed">Licence en Informatique</div><div class="es">IUT Douala</div><div class="edate">Sept. 2020 — Août 2021</div></div>
+    <div class="ec"><div class="ed">DUT en Génie Informatique</div><div class="es">IUT Douala</div><div class="edate">Sept. 2018 — Août 2020</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="s-label">Travaillons ensemble</div>
+  <h2>Me contacter</h2>
+  <p class="s-intro">Vous avez un projet data, un besoin d'audit IT ou une collaboration en vue ? Je suis disponible.</p>
+  <div class="cg">
+    <div>
+      <a href="/cdn-cgi/l/email-protection#44292536302d2a2d372525272a3d21302529767773042329252d286a272b29" class="ci"><span class="ci-ico">✉️</span><div><div class="ci-lbl">Email</div><div class="ci-val"><span class="__cf_email__" data-cfemail="d0bdb1a2a4b9beb9a3b1b1b3bea9b5a4b1bde2e3e790b7bdb1b9bcfeb3bfbd">[email&#160;protected]</span></div></div></a>
+      <a href="tel:+237656565304" class="ci"><span class="ci-ico">📞</span><div><div class="ci-lbl">Téléphone</div><div class="ci-val">+237 6 56 56 53 04</div></div></a>
+      <a href="https://www.linkedin.com/in/martin-isaac-nyetam-6a403a1b0/" target="_blank" class="ci"><span class="ci-ico">💼</span><div><div class="ci-lbl">LinkedIn</div><div class="ci-val">Martin Isaac Nyetam</div></div></a>
+      <a href="https://github.com/MartinIsaac-Data" target="_blank" class="ci" id="gh-link"><span class="ci-ico">🐙</span><div><div class="ci-lbl">GitHub</div><div class="ci-val" id="gh-val">github.com/MartinIsaac-Data</div></div></a>
+      <div class="ci" style="cursor:default;"><span class="ci-ico">📍</span><div><div class="ci-lbl">Localisation</div><div class="ci-val">Douala, Cameroun</div></div></div>
+    </div>
+    <form class="cf" onsubmit="send(event)">
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <input type="text" placeholder="Objet (ex : Projet Data Supply Chain)">
+      <textarea placeholder="Décrivez votre projet ou votre message…"></textarea>
+      <button type="submit" class="btn-send">Envoyer le message →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>Martin Isaac Nyetam</strong> — Data Analyst & IT Auditor · Douala, Cameroun</p>
+  <p style="margin-top:.35rem;">Construit avec passion · Mis à jour régulièrement</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => {
+      if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i*80);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Filter
+  function filter(s, btn) {
+    document.querySelectorAll('.fb').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.pc').forEach(c => {
+      c.style.display = (s==='all' || c.dataset.s===s) ? '' : 'none';
+    });
+  }
+
+  // Form
+  function send(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-send');
+    btn.textContent = '✅ Message envoyé !';
+    btn.style.background = '#2A7A52'; btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Envoyer le message →';
+      btn.style.background = ''; btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // GitHub link update function (call setGithub('username') to update)
+  window.setGithub = function(username) {
+    const el = docume
